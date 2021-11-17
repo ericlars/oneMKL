@@ -34,16 +34,16 @@ sycl::event create_dependency(sycl::queue queue) {
 }
 
 void print_status(const char* name, sycl::info::event_command_status status) {
-    global::log << name << " command execution status: ";
+    test_log::lout << name << " command execution status: ";
     if (sycl::info::event_command_status::submitted == status)
-        global::log << "submitted";
+        test_log::lout << "submitted";
     else if (sycl::info::event_command_status::running == status)
-        global::log << "running";
+        test_log::lout << "running";
     else if (sycl::info::event_command_status::complete == status)
-        global::log << "complete";
+        test_log::lout << "complete";
     else
-        global::log << "status unknown";
-    global::log << " (" << static_cast<int64_t>(status) << ")" << std::endl;
+        test_log::lout << "status unknown";
+    test_log::lout << " (" << static_cast<int64_t>(status) << ")" << std::endl;
 }
 
 bool check_dependency(sycl::queue queue, sycl::event in_event, sycl::event func_event) {
