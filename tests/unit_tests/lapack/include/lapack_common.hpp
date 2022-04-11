@@ -54,17 +54,11 @@ inline void print_device_info(const sycl::device& device) {
     sycl::platform platform = device.get_platform();
     std::cout << test_log::padding << std::endl;
     std::cout << test_log::padding << "Device Info" << std::endl;
-    std::cout << test_log::padding << device.get_info<sycl::info::device::name>() << std::endl;
-    std::cout << test_log::padding << platform.get_info<sycl::info::platform::name>() << std::endl;
-    std::cout << test_log::padding
-        << "device version : " << platform.get_info<sycl::info::platform::version>()
-        << std::endl;
-    std::cout << test_log::padding
-        << "driver version : " << device.get_info<sycl::info::device::driver_version>()
-        << std::endl;
-    std::cout << test_log::padding
-        << "vendor         : " << platform.get_info<sycl::info::platform::vendor>()
-        << std::endl;
+    std::cout << test_log::padding << "name : " << device.get_info<sycl::info::device::name>() << std::endl;
+    std::cout << test_log::padding << "driver version : " << device.get_info<sycl::info::device::driver_version>() << std::endl;
+    std::cout << test_log::padding << "platform : " << platform.get_info<sycl::info::platform::name>() << std::endl;
+    std::cout << test_log::padding << "platform version : " << platform.get_info<sycl::info::platform::version>() << std::endl;
+    std::cout << test_log::padding << "vendor         : " << platform.get_info<sycl::info::platform::vendor>() << std::endl;
     std::cout << test_log::padding << std::endl;
 }
 
